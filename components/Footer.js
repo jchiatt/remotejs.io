@@ -34,7 +34,7 @@ export default function Footer() {
       <p>&copy; {new Date().getFullYear()} RemoteJS</p>
       <p>
         <a
-          href="https://twitter.com/removejsevents"
+          href="https://twitter.com/remotejsevents"
           target="_blank"
           rel="noreferrer noopener"
         >
