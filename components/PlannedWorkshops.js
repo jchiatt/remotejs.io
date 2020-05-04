@@ -37,7 +37,7 @@ const Container = styled.div`
 export default function PlannedWorkshops() {
   return (
     <Container>
-      <h2>We're planning more workshops by the day.</h2>
+      <h2>More workshops are coming up!</h2>
       <p>Dates, instructors, and other details will be announced soon.</p>
       <h3>Planned Workshops:</h3>
       <ul>
