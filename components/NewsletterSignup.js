@@ -1,3 +1,4 @@
+import { useRef } from 'react';
 import styled from 'styled-components';
 
 const Container = styled.div`
@@ -63,12 +64,45 @@ const Container = styled.div`
 `;
 
 export default function NewsletterSignup() {
+  const inputEl = useRef(null);
+
+  const subscribe = async e => {
+    e.preventDefault();
+
+    const res = await fetch('/api/subscribe', {
+      body: JSON.stringify({
+        email: inputEl.current.value,
+      }),
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      method: 'POST',
+    });
+
+    const { error } = await res.json();
+
+    if (error) {
+      console.error(error);
+      alert('An error occured. Check your input. See console for more info.');
+
+      return;
+    }
+
+    inputEl.current.value = '';
+    alert('You are now subscribed!');
+  };
+
   return (
     <Container>
       <h2>Get notified of new events.</h2>
       <p>New remote workshops, talks, and conferences coming soon.</p>
-      <form>
-        <input type="email" placeholder="Your email" />
+      <form onSubmit={subscribe}>
+        <input
+          type="email"
+          placeholder="Your email..."
+          aria-label="Email for newsletter"
+          ref={inputEl}
+        />
         <button type="submit">Submit</button>
       </form>
     </Container>
