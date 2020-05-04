@@ -5,11 +5,6 @@ const StyledHeader = styled.header`
   padding: 1rem;
   background-color: ${({ theme }) => theme.colors.secondary};
 
-  h1 {
-    margin: 0;
-    color: ${({ theme }) => theme.colors.white};
-  }
-
   img {
     width: 100%;
     max-width: 12rem;
